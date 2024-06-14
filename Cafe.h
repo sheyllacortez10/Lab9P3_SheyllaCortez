@@ -11,6 +11,7 @@ private:
 	string Size;
 	double Cafeina;
 public:
+	Cafe();
 	Cafe(string tipo, int shot, string size);
 	~Cafe();
 	//getters
@@ -29,6 +30,6 @@ public:
 	void setCafeina();
 	double calcularCafeina();
 	int nivelRandom();
-	double espumaRandom();
+	double espumaRandom(int num1, int num2);
 };
 

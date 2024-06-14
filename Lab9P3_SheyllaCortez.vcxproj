@@ -127,7 +127,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Cafe.cpp" />
+    <ClCompile Include="Cafeteria.cpp" />
     <ClCompile Include="Lab9P3_SheyllaCortez.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Cafe.h" />
+    <ClInclude Include="Cafeteria.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

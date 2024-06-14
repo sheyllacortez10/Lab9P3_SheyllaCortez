@@ -5,28 +5,11 @@ int Cafe::nivelRandom() {
 	int random = rand() % numero1 + numero2;
 	return random;
 }
-double Cafe::espumaRandom(){
-	int numero1;
-	int numero2;
-	double random;
-	if (Tipo == "Americano")
-	{
-		numero1 = 0.30;
-		numero2 = 0.0;
-		random = (rand() % numero1 + numero2) / 100;
-	}
-	else if (Tipo == "Capuccino") {
-		numero1 = 0.65;
-		numero2 = 0.31;
-		random = (rand() % numero1 + numero2) / 100;
-	}
-	else if (Tipo == "Latte") {
-		numero1 = 1.0;
-		numero2 = 0.66;
-		random = (rand() % numero1 + numero2) / 100;
-	}
+double Cafe::espumaRandom(int numero1, int numero2){
+	double random = (double)rand() / RAND_MAX;
 	return random;
 }
+Cafe::Cafe(){}
 Cafe::Cafe(string tipo, int shot, string size){
 	this->Tipo = tipo;
 	this->Extra_shot = shot;
@@ -68,7 +51,15 @@ void Cafe::setNivel() {
 	this->Nivel_cafe = nivelRandom();
 }
 void Cafe::setPercentage() {
-	this->Porcentaje_espuma = espumaRandom();
+	if (Tipo == "Americano") {
+		this->Porcentaje_espuma = espumaRandom(0.30, 0.0);
+	}
+	else if (Tipo == "Capuccino") {
+		this->Porcentaje_espuma = espumaRandom(0.31, 0.65);
+	}
+	else if (Tipo == "Latte") {
+		this->Porcentaje_espuma = espumaRandom(0.66, 1.0);
+	}
 }
 void Cafe::setXShot(int xshot) {
 	if (xshot == 0) {
@@ -85,12 +76,12 @@ void Cafe::setCafeina() {
 	this->Cafeina = calcularCafeina();
 }
 double Cafe::calcularCafeina() {
-	double cantCafeina;
-	int BaseCafeinaTipo;
+	double cantCafeina  = 0.0;
+	int BaseCafeinaTipo = 0;
 	int FactorNivel = 10;
 	int FactorEspuma = 50;
 	int IncrementoExtraShot = 70;
-	double FactorTamano;
+	double FactorTamano = 0.0;
 	//BaseCafeinaTipo
 	if (Tipo == "Americano") {
 		BaseCafeinaTipo = 80;

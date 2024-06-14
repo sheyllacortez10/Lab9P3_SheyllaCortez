@@ -23,7 +23,6 @@ void Cafeteria::agregarCafe(Cafe* cafecito) {
 void Cafeteria::listarCafes() {
 	cout << "Cafes guardados: " << endl;
 	for (int i = 0; i < cafes.size(); i++) {
-		cout << i << endl;
 		cout << "Tipo: " << cafes[i]->getTipo() << endl;
 		cout << "Nivel de Cafe: " << cafes[i]->getNivel()<< endl;
 		cout << "Porcentaje de Espuma: " << cafes[i]->getPercentage() << endl;
@@ -37,19 +36,39 @@ void Cafeteria::ordenarDecs() {
 	listarCafes();
 	for (int i = 0; i < cafes.size() - 1; i++) {
 		for (int j = 0; j < cafes.size() - i - 1; j++) {
-			if (cafes[i]->getNivel() < cafes[j]->getNivel()) {
-
+			if (cafes[j]->getNivel() > cafes[j + 1]->getNivel()) {
+				swap(cafes[j + 1], cafes[j]);
 			}
 		}
+	}
+	cout << "En orden ascendente" << endl;
+	for (int i = 0; i < cafes.size(); i++) {
+		cout << "Tipo: " << cafes[i]->getTipo() << endl;
+		cout << "Nivel de Cafe: " << cafes[i]->getNivel() << endl;
+		cout << "Porcentaje de Espuma: " << cafes[i]->getPercentage() << endl;
+		cout << "Extra shot: " << cafes[i]->getXshot() << endl;
+		cout << "Tamano: " << cafes[i]->getSize() << endl;
+		cout << "Cafeina: " << cafes[i]->getCafeina() << endl;
+		cout << endl;
 	}
 }
 void Cafeteria::ordenarAsc() {
 	listarCafes();
-	for (int i = 0; i < cafes.size(); i++) {
-		for (int j = 0; j < cafes.size(); j++) {
-			if (cafes[i]->getNivel() < cafes[j]->getNivel()) {
-
+	for (int i = 0; i < cafes.size() - 1; i++) {
+		for (int j = 0; j < cafes.size() - i - 1; j++) {
+			if (cafes[j]->getNivel() < cafes[j + 1]->getNivel()) {
+				swap(cafes[j], cafes[j + 1]);
 			}
 		}
+	}
+	cout << "En orden descendente" << endl;
+	for (int i = 0; i < cafes.size(); i++) {
+		cout << "Tipo: " << cafes[i]->getTipo() << endl;
+		cout << "Nivel de Cafe: " << cafes[i]->getNivel() << endl;
+		cout << "Porcentaje de Espuma: " << cafes[i]->getPercentage() << endl;
+		cout << "Extra shot: " << cafes[i]->getXshot() << endl;
+		cout << "Tamano: " << cafes[i]->getSize() << endl;
+		cout << "Cafeina: " << cafes[i]->getCafeina() << endl;
+		cout << endl;
 	}
 }
