@@ -17,7 +17,7 @@ void menu() {
 		cout << "3. Ordenar Descendente" << endl;
 		cout << "4. Ordenar Ascendente" << endl;
 		cout << "5. Guardar Cafes" << endl;
-		cout << "6. Guardar Cafes" << endl;
+		cout << "6. Cargar Cafes" << endl;
 		cout << "7. Salir" << endl;
 		cout << endl;
 		cout << "Ingrese la opción que desea realizar: ";
@@ -97,24 +97,36 @@ void menu() {
 			}
 			break;
 		case 3:
-			if (cafes > 0) {
+			if (cafes > 1) {
 				Lacafe->ordenarDecs();
 			}
 			else {
-				cout << "Cafes insuficientes" << endl;
+				cout << "Cafes insuficientes, debe haber mas de 1" << endl;
 			}
 			break;
 		case 4:
-			if (cafes > 0) {
+			if (cafes > 1) {
 				Lacafe->ordenarAsc();
+			}
+			else {
+				cout << "Cafes insuficientes, debe haber mas de 1" << endl;
+			}
+			break;
+		case 5:
+			if (cafes > 0) {
+				Lacafe->guardarBebidas();
 			}
 			else {
 				cout << "Cafes insuficientes" << endl;
 			}
 			break;
-		case 5:
-			break;
 		case 6:
+			if (cafes > 0) {
+				cout << "no se cargaron";
+			}
+			else {
+				cout << "Cafes insuficientes, debe haber mas de 1" << endl;
+			}
 			break;
 		case 7:
 			cout << "Saliendo del programa" << endl;

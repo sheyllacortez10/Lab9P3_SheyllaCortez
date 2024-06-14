@@ -1,0 +1,4 @@
+Tipo,Nivel_cafe,Porcentaje_espuma,Extra_shot,Size,Cafeina
+Americano,10,0.479873,0,Mediano,234.009522
+Americano,5,0.808741,0,Pequeño,89.562975
+Capuccino,2,0.563585,1,Grande,243.641469

@@ -12,11 +12,12 @@ public:
 	~Cafeteria();
 	vector<Cafe*> getVector();
 	void setVector(vector<Cafe*> cafes);
+	//metodos
 	void agregarCafe(Cafe* cafecito);
 	void listarCafes();
 	void ordenarDecs();
 	void ordenarAsc();
-	void guardarBebidad();
+	void guardarBebidas();
 	void cargarBebidas();
 
 };
