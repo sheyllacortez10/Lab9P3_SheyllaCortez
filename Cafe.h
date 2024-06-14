@@ -26,8 +26,8 @@ public:
 	void setPercentage();
 	void setXShot(int xshot);
 	void setSize(string size);
-	void setCafeina(double cafeina);
-	void calcularCafeina();
+	void setCafeina();
+	double calcularCafeina();
 	int nivelRandom();
 	double espumaRandom();
 };

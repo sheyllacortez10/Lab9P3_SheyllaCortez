@@ -33,6 +33,7 @@ Cafe::Cafe(string tipo, int shot, string size){
 	this->Size = size;
 	setNivel();
 	setPercentage();
+	setCafeina();
 }
 Cafe::~Cafe() {
 	this->Tipo = "";
@@ -78,11 +79,40 @@ void Cafe::setXShot(int xshot) {
 	}
 }
 void Cafe::setSize(string size) {
-
+	this->Size = size;
 }
-void Cafe::setCafeina(double cafeina) {
-
+void Cafe::setCafeina() {
+	this->Cafeina = calcularCafeina();
 }
-void Cafe::calcularCafeina() {
-
+double Cafe::calcularCafeina() {
+	double cantCafeina;
+	int BaseCafeinaTipo;
+	int FactorNivel = 10;
+	int FactorEspuma = 50;
+	int IncrementoExtraShot = 70;
+	double FactorTamano;
+	//BaseCafeinaTipo
+	if (Tipo == "Americano") {
+		BaseCafeinaTipo = 80;
+	}
+	else if (Tipo == "Capuccino") {
+		BaseCafeinaTipo = 60;
+	}
+	else if (Tipo == "Latte") {
+		BaseCafeinaTipo = 50;
+	}
+	//FactorTamano
+	if (Size == "Pequeño")
+	{
+		FactorTamano = 1.0;
+	}
+	else if (Size == "Mediano") {
+		FactorTamano = 1.5;
+	}
+	else if (Size == "Grande") {
+		FactorTamano = 2.0;
+	}
+	cantCafeina = (BaseCafeinaTipo + Nivel_cafe*FactorNivel - Porcentaje_espuma
+		*FactorEspuma + (int)Extra_shot * IncrementoExtraShot) * FactorTamano;
+	return cantCafeina;
 }
